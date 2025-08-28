@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;800&display=swap" rel="stylesheet">
+  <title>Auction House</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header id="site-header"></header>
+  <main class="container">
+    <h1>Latest Listings</h1>
+    <form id="globalSearch" class="search">
+      <input id="q" name="q" placeholder="Search listings…" />
+      <button>Search</button>
+    </form>
+    <div id="listingsGrid" class="grid"></div>
+    <p id="emptyState" class="muted hidden">No listings yet.</p>
+  </main>
+  <script type="module">
+    import './js/main.js';
+    import { listListings } from './js/listings.js';
+    const params = new URLSearchParams(location.search);
+    const q = params.get('q') || '';
+    listListings({ q });
+  </script>
+</body>
+</html>

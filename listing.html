@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;800&display=swap" rel="stylesheet">
+  <title>Listing • Auction House</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header id="site-header"></header>
+  <main class="container">
+    <article id="listing" class="listing"></article>
+    <section id="bidSection" class="card hidden">
+      <h2>Place a bid</h2>
+      <form id="bidForm">
+        <label>Amount (credits)
+          <input type="number" name="amount" min="1" step="1" required />
+        </label>
+        <button>Bid</button>
+      </form>
+      <p id="bidError" class="error hidden"></p>
+    </section>
+  </main>
+  <script type="module">
+    import './js/main.js';
+    import { loadListing } from './js/listings.js';
+    import { initBidForm } from './js/bids.js';
+    const id = new URLSearchParams(location.search).get('id');
+    loadListing(id).then(() => initBidForm(id));
+  </script>
+</body>
+</html>

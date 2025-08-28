@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;800&display=swap" rel="stylesheet">
+  <title>Create Listing • Auction House</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header id="site-header"></header>
+  <main class="container narrow">
+    <h1>Create a listing</h1>
+    <form id="createForm" class="card">
+      <label>Title <input name="title" required /></label>
+      <label>Ends at <input name="endsAt" type="datetime-local" required /></label>
+      <label>Media URLs (one per line)
+        <textarea name="media" rows="4"></textarea>
+      </label>
+      <label>Description
+        <textarea name="description" rows="6"></textarea>
+      </label>
+      <button>Create</button>
+      <p id="createError" class="error hidden"></p>
+    </form>
+  </main>
+  <script type="module">
+  import './js/main.js';
+  import { initCreateForm, initEditMode } from './js/listings.js';
+  const id = new URLSearchParams(location.search).get('id');
+  if (id) {
+    document.title = "Edit Listing • Auction House";
+    const h1 = document.querySelector("h1");
+    if (h1) h1.textContent = "Edit listing";
+    initEditMode(id);
+  } else {
+    initCreateForm();
+  }
+</script>
+</body>
+</html>

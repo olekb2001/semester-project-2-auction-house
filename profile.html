@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;800&display=swap" rel="stylesheet">
+
+  <title>Profile • Auction House</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header id="site-header"></header>
+  <main class="container">
+    <section class="profile card">
+      <div class="profile-banner">
+        <img id="banner" alt="Profile banner" />
+      </div>
+      <div class="profile-header">
+        <img id="avatar" class="avatar" alt="Avatar" />
+        <div>
+          <h1 id="name"></h1>
+          <p>Credits: <strong id="credits">0</strong></p>
+        </div>
+      </div>
+      <form id="profileForm" class="grid-2">
+        <label>Bio
+          <textarea name="bio" rows="4" placeholder="Tell us about you…"></textarea>
+        </label>
+        <label>Avatar URL
+          <input name="avatar" type="url" placeholder="https://… (leave blank to remove)" />
+        </label>
+        <label>Banner URL
+          <input name="banner" type="url" placeholder="https://… (leave blank to remove)" />
+        </label>
+        <button style="grid-column:1 / -1">Update profile</button>
+        <p id="profileError" class="error hidden" style="grid-column:1 / -1"></p>
+      </form>
+    </section>
+    <section class="card">
+      <h2>Your listings</h2>
+      <div id="myListings" class="grid"></div>
+    </section>
+    <section class="card">
+      <h2>Your bids</h2>
+      <div id="myBids" class="grid"></div>
+    </section>
+  </main>
+  <script type="module">
+    import './js/main.js';
+    import { loadProfile } from './js/profile.js';
+    loadProfile();
+  </script>
+</body>
+</html>
+
