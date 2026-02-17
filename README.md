@@ -37,3 +37,15 @@ Front-end for the **Noroff Auction House API v2**. Built with **vanilla JavaScri
 - **No frameworks**: React, Vue, Next, Nuxt, etc. **not permitted**
 - **CSS**: custom (optionally Tailwind/Bootstrap allowed by brief, but this project uses custom CSS)
 - **API**: Noroff **v2** (`https://v2.api.noroff.dev`)
+
+---
+
+## 🔧 Portfolio 2 Improvements
+
+For Portfolio 2, I reviewed tutor feedback and made the following improvements:
+
+- Prevented duplicate navigation event listeners in `main.js` by ensuring listeners are only attached once.
+- Improved error handling by removing an empty `catch` block and adding proper error logging.
+- Minor code cleanup and formatting improvements for better readability.
+
+These changes improve code stability, maintainability, and overall project quality.
